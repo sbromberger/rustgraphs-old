@@ -1,0 +1,17 @@
+[package]
+name = "rustgraph"
+version = "0.1.0"
+authors = ["Seth Bromberger <github@bromberger.com>"]
+edition = "2018"
+
+# [profile.release]
+# debug = true
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[profile.release]
+    lto = true
+
+[dependencies]
+num = "0.2.1"
+graph_matrix = { path = "../graph_matrix" }
+bitvec = "0.17.3"
