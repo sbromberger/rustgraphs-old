@@ -112,12 +112,12 @@ where
         // println!("cur_level = {:?}", cur_level);
         while !cur_level.is_empty() {
             for v in cur_level.iter().cloned() {
-                for i in self.outneighbors(v) {
+                for i in self.outneighbors(v).cloned() {
                     // println!("neighbor {:?}", i);
                     let ui = i.to_usize().expect("Invalid vertex");
                     if unsafe { !*visited.get_unchecked(ui) } {
                         // println!("{:?} -> {}", v, ui);
-                        next_level.push(*i);
+                        next_level.push(i);
                         unsafe {
                             visited.set_unchecked(ui, true);
                             *levels.get_unchecked_mut(ui) = n_level;
